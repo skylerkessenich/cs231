@@ -1,0 +1,20 @@
+1) 137.22.173.90. 
+
+2)To find the IP address of a given host name you use the ping comand in the terminal followed by the host name. 
+So to test I ran ping Skylers-MacBook-Pro.local and it gave me the IP addresss
+
+3)To find the host name for a given IP address in the terminal you use nslookup followed by the IP address.
+
+4)To copy a file from my Kali linux server to the math cs coputer, 
+I would use the scp comand followed by my math/cs username, the IP address of the math/cs page then the file to send and its location.
+scp -r kessenichs@(IP address of mantis.mathcs.carleton.edu): /directory /directoryToSave
+
+5)To find whether a a process is listening on a given port, you use the lsof command. e.g lsof -i :80 tells me whether a process is listening on port 80
+
+6)To see which ports have a process listening on the you use the sudo lsof -nP -iTCP -sTCP:LISTEN command. Alternitivly you can use netstat -an -ptcp | grep LISTEN
+
+7) To get a file saved in yopur system you do w.get -o "url" /path/filename 
+
+8) To view the header after a web server request, you use the curl comand. For example if I wanted the headers for espn I'd type curl --head https://www.espn.com
+
+9)

@@ -1,0 +1,23 @@
+Miguel Alvarez and Skyler Kessenich
+======== DAYTIME ========
+1.  1	0.000000000	10.0.2.15	129.6.15.29	TCP	74	44964 → 13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=420235803 TSecr=0 WS=128
+2	0.033201080	129.6.15.29	10.0.2.15	TCP	60	13 → 44964 [SYN, ACK] Seq=0 Ack=1 Win=32768 Len=0 MSS=1460
+3	0.033249766	10.0.2.15	129.6.15.29	TCP	54	44964 → 13 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+2. The client is using port 44964 for this interaction. For these interactions you need both a source port as well as a destination port.
+3.  4	0.065950364	129.6.15.29	10.0.2.15	DAYTIME	105	DAYTIME Response
+4. Daytime: \n59310 21-04-06 02:58:45 50 0 0 449.8 UTC(NIST) * \n
+    - source: https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
+    - the number (59310) before the date is the Modified Julian Date. The 50 indicates that the US is in Daylight Savings Time is in effect. The first 0 after the 50 means that no leap second will occur this month. The second 0 after the 50 indicates that the server is healthy. 449.8 is the number of milliseconds that NIST advances the time code to account for network delays. UTC(NIST) means that you are receiving Coordinated Universal Time (UTC) from NIST. The * is the on-time marker that means that the time we received (i.e. the time code) is when the on-time marker (*) arrives.
+5. Synchronize which initializes the connection between the client and the server.
+6. Aknowledge which means that the connection has been aknowledged by the receiving client or server.
+7. Fin closes the connection.
+8. The Daytime Server closed the connection because the server sent ehte first [FIN] message.
+5	0.065950402	129.6.15.29	10.0.2.15	TCP	60	13 → 44964 [FIN, ACK] Seq=52 Ack=1 Win=32768 Len=0
+======== HTTP ========
+1.  2 TCP connections were opened
+2. Yes, index.html was requested at frame 7.
+7 0.047056144 10.0.2.15 45.79.89.123 HTTP 395 GET /index.html HTTP/1.1
+3. Yes, jeff_square_head.jpg was requested at frame 11.
+11 0.272929606 10.0.2.15 45.79.89.123 HTTP 364 GET /jeff_square_head.jpg HTTP/1.1
+======== Questions ========
+1.On Skylers computer we got a completely different set of packets from the HTTP portion of the assignment why maybe would this be?

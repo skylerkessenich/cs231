@@ -1,0 +1,39 @@
+***NOT our final submission. Our submission is in Skyler's repo***
+
+Part 1 -- one word passwords only
+Passwords cracked: 1162
+
+Total time:
+real	0m0.759s
+user	0m0.695s
+sys	0m0.049s
+
+Number of hashes computed: 267751
+
+Passwords cracked per number of hashes computed: 0.0043
+
+Time per password cracked: 0.000598
+
+**For this section we computed all the one word passwords, stored them in a dictionary with the MD5 of the one word password as the key and the value being the password. Then, for every hash in the list of login credentials we looked up that hash in the dictionary and if was there, we added that user:passwrod to the tesxt file. 
+
+Lets say that our list of one word passwords has N entries and the file with the user digest combos has M, this computation would take O(N+M) time. Thus with 267751 one word passwords, and approximately 2000 digests, this takes around 269000 setps to compute. Now if we add all the possible two word passwords, then there are all of the one word passwords (267751) and 267751*267751 two word ones so our dictionary has 267751*267751+267751 entries. Now this implies that our funtion runs in about O(N*N) time which is alot slower. **
+
+When we actually tried to compute this, when we reached computed about 800*267751 hashes the computer began to slow down jurastically and thus we never finished. We tried running on multiple computes by breaking up where we computed the passwords but we would need alot more computers to get this step done efficiently. 
+
+
+Part 2
+Passwords cracked: 0
+
+Total time: Since here, we are computing all the two word passwords but now we have to factor in the salt, if there are M digests each woth a salt, we could possibly have to do O(N*N*M) computations which is about (267751*267751+267751)*2326 computations. Now if computing 267751 hashes took ~ .759s to compute then we approximate it would take almost 100,000 hours on our computer to compute all the salt passwords in the worst case.
+
+Number of hashes computed: We ran it on both our computers in an effort to speed up the processing, however, we only were able to computer 723x(the number of lines in the word.txt file) in 1.5 hours on one computer.
+
+
+Passwords cracked per number of hashes computed: 0
+
+
+Time per password cracked: a very long time! We did not crack any passwords after running the program for a while.
+
+
+Factor by which your time per password lengthened, and why:
+    - Like before we said that this is O(N*N*M) meaning that this function takes N*M more time total thus like we said this would take approximatly (267751*2326) more time then the first step only using one word passwords. 

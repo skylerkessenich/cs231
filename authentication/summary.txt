@@ -1,4 +1,4 @@
-***NOT our final submission. Our submission is in Skyler's repo***
+Grace de Benedetti and Skyler Kessenich
 
 Part 1 -- one word passwords only
 Passwords cracked: 1162
